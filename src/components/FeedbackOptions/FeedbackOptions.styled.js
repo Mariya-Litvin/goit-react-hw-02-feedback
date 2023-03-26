@@ -17,7 +17,7 @@ export const Button = styled.button`
   width: 80px;
   height: 35px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   border-radius: 5px;
   text-transform: capitalize;
   border: 2px solid blueviolet;

@@ -46,8 +46,7 @@ export class App extends Component {
           />
         </Section>
         <Section title="Statistics">
-          <Notification message="There is no feedback" />
-          {isOpen && (
+          {isOpen ? (
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
@@ -55,6 +54,8 @@ export class App extends Component {
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
+          ) : (
+            <Notification message="There is no feedback" />
           )}
         </Section>
       </Wrapper>
