@@ -4,8 +4,11 @@ import { Notification } from './Notification/Notification';
 import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
 
+import { Wrapper } from './App.styled';
+
 const buttons = ['good', 'neutral', 'bad'];
 let isOpen = false;
+
 export class App extends Component {
   state = {
     good: 0,
@@ -17,7 +20,7 @@ export class App extends Component {
     this.setState(prevState => ({
       [stateName]: prevState[stateName] + 1,
     }));
-    console.log(this.state.good);
+    // console.log(this.state.good);
   };
 
   countTotalFeedback = () => {
@@ -29,13 +32,12 @@ export class App extends Component {
   };
 
   toggle = () => {
-    if (isOpen === false) {
-      return (isOpen = true);
-    }
+    isOpen = isOpen === false ? true : isOpen;
   };
+
   render() {
     return (
-      <div>
+      <Wrapper>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={buttons}
@@ -55,7 +57,7 @@ export class App extends Component {
             />
           )}
         </Section>
-      </div>
+      </Wrapper>
     );
   }
 }
