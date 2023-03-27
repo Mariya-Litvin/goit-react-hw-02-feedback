@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-// export const WrapperButtons = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   gap: 10px;
-// `;
-
 export const ButtonsList = styled.ul`
   display: flex;
   flex-direction: row;

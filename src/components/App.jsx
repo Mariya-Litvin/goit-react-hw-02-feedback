@@ -6,15 +6,15 @@ import { Statistics } from './Statistics/Statistics';
 
 import { Wrapper } from './App.styled';
 
-const buttons = ['good', 'neutral', 'bad'];
-let isOpen = false;
-
 export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
+
+  buttons = ['good', 'neutral', 'bad'];
+  isOpen = false;
 
   handleIncrement = stateName => {
     this.setState(prevState => ({
@@ -32,7 +32,7 @@ export class App extends Component {
   };
 
   toggle = () => {
-    isOpen = isOpen === false ? true : isOpen;
+    this.isOpen = this.isOpen === false ? true : this.isOpen;
   };
 
   render() {
@@ -40,13 +40,13 @@ export class App extends Component {
       <Wrapper>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={buttons}
+            options={this.buttons}
             onLeaveFeedback={this.handleIncrement}
-            onClick={this.toggle}
+            onClickButtons={this.toggle}
           />
         </Section>
         <Section title="Statistics">
-          {isOpen ? (
+          {this.isOpen ? (
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
