@@ -30,9 +30,8 @@ export class App extends Component {
   countPositiveFeedbackPercentage = () => {
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
-
-  toggle = () => {
-    this.isOpen = this.isOpen === false ? true : this.isOpen;
+  onOpenStatistics = () => {
+    this.isOpen = true;
   };
 
   render() {
@@ -42,7 +41,7 @@ export class App extends Component {
           <FeedbackOptions
             options={this.buttons}
             onLeaveFeedback={this.handleIncrement}
-            onClickButtons={this.toggle}
+            onClickButtons={this.onOpenStatistics}
           />
         </Section>
         <Section title="Statistics">
