@@ -13,8 +13,7 @@ export class App extends Component {
     bad: 0,
   };
 
-  buttons = ['good', 'neutral', 'bad'];
-  isOpen = false;
+  buttons = Object.keys(this.state);
 
   handleIncrement = stateName => {
     this.setState(prevState => ({
@@ -30,9 +29,6 @@ export class App extends Component {
   countPositiveFeedbackPercentage = () => {
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
-  onOpenStatistics = () => {
-    this.isOpen = true;
-  };
 
   render() {
     return (
@@ -41,11 +37,10 @@ export class App extends Component {
           <FeedbackOptions
             options={this.buttons}
             onLeaveFeedback={this.handleIncrement}
-            onClickButtons={this.onOpenStatistics}
           />
         </Section>
         <Section title="Statistics">
-          {this.isOpen ? (
+          {this.countTotalFeedback() > 0 ? (
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
